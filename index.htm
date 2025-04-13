@@ -1,48 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Keeping the Stoke</title>
-    <style>
-      body {
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-        background: #030303;
-        color: #D4C9BE;
-        margin: 0;
-        padding: 2rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.6;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keeping the Stoke</title>
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --text: #333333;
+      --primary: #2C3E50;
+      --accent: #3498DB;
+      --card-bg: #FFFFFF;
+    }
 
-      h1 {
-        font-size: 2.5rem;
-        color: #123458;
-        margin-bottom: 1rem;
-      }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
 
-      p {
-        font-size: 1.2rem;
-      }
+    nav {
+      background-color: var(--primary);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
 
-      .note {
-        background: #F1EFEC;
-        color: #030303;
-        border-left: 5px solid #123458;
-        padding: 1rem;
-        margin-top: 2rem;
-        border-radius: 4px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Hey, I'm Keeping the Stoke </h1>
-    <p>Welcome to my learning journal + portfolio!</p>
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
 
-    <div class="note">
-      <strong>Current vibe:</strong> Learning how to build my site from scratch with GitHub Pages, HTML, and a little help from my AI buddy.
-    </div>
-  </body>
+    nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav li a:hover {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .note {
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <h1>Keeping the Stoke</h1>
+  <p>Learning in real time. Building a digital home for the journey.</p>
+
+  <div class="note">
+    <strong>Current focus:</strong> Learning to code, one section at a time — starting with this very website.
+  </div>
+
+</body>
 </html>
