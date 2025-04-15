@@ -2,168 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Keeping the Stoke | Data Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keepingthestoke — Portfolio</title>
   <style>
-
-    .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.card {
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.card-front {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-front img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.card-front h3 {
-  margin: 0.5rem;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.card-back {
-  background: #fefefe;
-  transform: rotateY(180deg);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #333;
-  text-align: center;
-}
-
-.card-back a {
-  margin-top: 0.5rem;
-  color: #008891;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card-back a:hover {
-  text-decoration: underline;
-}
-
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
+      margin: 0;
+      background-color: #f7f8f9;
       color: #222;
     }
+
     header {
-      background-color: #0f3057;
-      color: white;
+      background-color: #111;
+      color: #fff;
       padding: 2rem;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
     section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      padding: 3rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .project {
-      background: white;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-left: 4px solid #008891;
-      border-radius: 5px;
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #ccc;
+      display: inline-block;
+      padding-bottom: 0.3rem;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #e7e7e7;
-    }
-  </style>
-</head>
-<body>
 
-<header>
-  <h1>Keeping the Stoke</h1>
-  <p>Documenting my data learning journey</p>
-</header>
-
-<section>
-  <h2>About Me</h2>
-  <p>Hi! I'm an aspiring data analyst currently working toward transitioning into a data role. I'm learning by doing — building projects, analyzing messy data, and growing a portfolio I’m proud of.</p>
-</section>
-
-<section>
-
-  <section>
-  <div class="card">
-  <div class="card-inner">
-    <div class="card-front">
-      <img src="https://i.imgur.com/Bq2FS9w.png" alt="NYC Real Estate Tableau Dashboard">
-      <h3>NYC Real Estate Trends</h3>
-    </div>
-    <div class="card-back">
-      <p>Used Tableau to analyze real estate sales trends in NYC by borough, zip code, and building type. Key findings highlight investment opportunities and pricing patterns.</p>
-      <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart3_17322260102710/Dashboard1" target="_blank">View Dashboard</a>
-    </div>
-  </div>
-</div>
-    <div class="card">
-  <div class="card-inner">
-    <div class="card-front">
-      <img src="https://i.imgur.com/9Gi5fnE.jpeg" alt="NYC Real Estate Tableau Dashboard">
-      <h3> Railway Investment Strategy </h3>
-    </div>
-    <div class="card-back">
-      <p>Used Tableau to analyze Railway opportunities globeablly and presented findings. </p>
-      <a https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart2Take2/Conclusion" target="_blank">View Dashboard</a>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>You can reach me at: <strong>your@email.com</strong></p>
-</section>
-
-<footer>
-  <p>Made with curiosity + caffeine ☕</p>
-</footer>
-
-</body>
-</html>
+    .card-grid
