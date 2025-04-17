@@ -318,5 +318,20 @@
     }
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  .tiny-dog {
+  position: fixed;
+  bottom: 10px;
+  left: -100px;
+  width: 60px;
+  z-index: 9999;
+  animation: dogWalk 20s linear infinite;
+}
+
+@keyframes dogWalk {
+  0% { left: -100px; }
+  100% { left: 110%; }
+}
+<img class="tiny-dog" src="https://i.imgur.com/XLPtN7a.gif" alt="Tiny dog trotting">
+
 </body>
 </html>
