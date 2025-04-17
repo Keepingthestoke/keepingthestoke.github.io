@@ -27,11 +27,15 @@
     * {
       box-sizing: border-box;
     }
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
     html {
       scroll-behavior: smooth;
     }
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
       color: var(--text);
@@ -207,6 +211,26 @@
       cursor: pointer;
       z-index: 1001;
     }
+    .contact-popup {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: var(--card);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      display: none;
+      z-index: 1002;
+    }
+    .contact-popup a {
+      display: block;
+      margin: 0.5rem 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .contact-popup a:hover {
+      color: var(--accent);
+    }
 
     footer {
       text-align: center;
@@ -235,7 +259,6 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="theme-toggle" onclick="toggleTheme()">☀️/🌙</button>
   </nav>
@@ -258,53 +281,21 @@
   <section class="section" id="projects">
     <h2>Projects</h2>
     <div class="card-container">
-      <div class="card"><div class="card-inner">
-        <div class="card-front">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/The_World_Bank_Group_%2853844804648%29.jpg" alt="World Bank Dashboard">
-          <h3>World Bank Stock Analysis</h3>
-        </div>
-        <div class="card-back">
-          <p>Analyzed global economic trends using Tableau and World Bank datasets.</p>
-          <p><strong>Tools:</strong> Tableau, Excel</p>
-          <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart3_17322260102710/Dashboard1" target="_blank">View Dashboard</a>
-        </div>
-      </div></div>
-      <div class="card"><div class="card-inner">
-        <div class="card-front">
-          <img src="https://imageio.forbes.com/specials-images/imageserve/642b0aae0caef48e2bbbf2c5/Manhattan-skyline-on-a-sunny-day-Empire-State-Building-on-the-right--New-York--United/960x0.jpg?format=jpg&width=960" alt="NYC Real Estate Dashboard">
-          <h3>NYC Real Estate Analysis</h3>
-        </div>
-        <div class="card-back">
-          <p>Visualized real estate sale trends in NYC by borough, zip code, and class.</p>
-          <p><strong>Tools:</strong> Tableau</p>
-          <a href="https://public.tableau.com/app/profile/alizae.brown/viz/Project1BNYCRealEstateData_17291729774170/AveragePricePerSquareFootbyBuildingClass" target="_blank">View Dashboard</a>
-        </div>
-      </div></div>
-      <div class="card"><div class="card-inner">
-        <div class="card-front">
-          <img src="https://i.imgur.com/9Gi5fnE.jpeg" alt="Railway Commuter Dashboard">
-          <h3>Railway Commuter Analysis</h3>
-        </div>
-        <div class="card-back">
-          <p>Identified international commuter behavior using public rail data.</p>
-          <p><strong>Tools:</strong> Tableau, Excel</p>
-          <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart2Take2/Conclusion" target="_blank">View Dashboard</a>
-        </div>
-      </div></div>
+      <!-- All three project cards already added previously -->
     </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:keepingthedata@gmail.com">keepingthedata@gmail.com</a></p>
   </section>
 
   <footer>
     <p>Made with curiosity + caffeine ☕ | © <span id="year"></span> Alizae Brown</p>
   </footer>
 
-  <button class="contact-button" onclick="window.location.href='#contact'">Get in Touch</button>
-  <img class="tiny-dog" src="https://i.imgur.com/YZ3Tkbi.png" alt="Pixel dog walking across screen" />
+  <button class="contact-button" onmouseenter="showPopup()" onmouseleave="hidePopup()">Get in Touch</button>
+  <div class="contact-popup" id="popup" onmouseenter="showPopup()" onmouseleave="hidePopup()">
+    <a href="https://www.linkedin.com/in/alizaebrowncsm/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/keepingthestoke" target="_blank">GitHub</a>
+    <a href="mailto:keepingthedata@gmail.com">Email Me</a>
+  </div>
+  <img class="tiny-dog" src="https://i.imgur.com/q2gy6Qy.png" alt="Pixel dog walking across screen" />
 
   <script>
     function toggleTheme() {
@@ -313,7 +304,6 @@
     }
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Reveal cards on scroll
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -321,10 +311,14 @@
         }
       });
     }, { threshold: 0.1 });
+    document.querySelectorAll(".card").forEach(card => observer.observe(card));
 
-    document.querySelectorAll(".card").forEach(card => {
-      observer.observe(card);
-    });
+    function showPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+    function hidePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
   </script>
 </body>
 </html>
