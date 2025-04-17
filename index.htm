@@ -92,16 +92,42 @@
       white-space: nowrap;
       box-sizing: border-box;
       width: 100%;
-      margin: 1rem 0;
+      background-color: var(--bg);
+      padding: 1rem 0;
     }
-    .marquee span {
+
+    .marquee-content {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 15s linear infinite;
+      animation: marquee 30s linear infinite;
     }
+
     @keyframes marquee {
-      0% { transform: translateX(0%); }
+      0%   { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
+    }
+
+    .pill {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
     }
 
     .card-container {
@@ -109,14 +135,29 @@
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      margin-top: 2rem;
     }
 
     .card {
-      width: 300px;
+      flex: 1 1 calc(33.333% - 2rem);
+      max-width: calc(33.333% - 2rem);
       height: 200px;
       perspective: 1000px;
     }
+
+    @media (max-width: 900px) {
+      .card {
+        flex: 1 1 calc(50% - 2rem);
+        max-width: calc(50% - 2rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+
     .card-inner {
       position: relative;
       width: 100%;
@@ -124,9 +165,11 @@
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
+
     .card:hover .card-inner {
       transform: rotateY(180deg);
     }
+
     .card-front, .card-back {
       position: absolute;
       width: 100%;
@@ -137,16 +180,19 @@
       background-color: var(--card);
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
+
     .card-front img {
       width: 100%;
       height: 140px;
       object-fit: cover;
     }
+
     .card-front h3 {
       margin: 0.5rem;
       font-size: 1.1rem;
       color: var(--text);
     }
+
     .card-back {
       transform: rotateY(180deg);
       padding: 1rem;
@@ -156,108 +202,20 @@
       color: var(--text);
       text-align: center;
     }
+
     .card-back a {
       margin-top: 0.5rem;
       color: var(--accent);
       text-decoration: none;
       font-weight: bold;
     }
+
     .card-back a:hover {
       text-decoration: underline;
     }
 
     .quote-block {
       font-style: italic;
-      text-align: center;
-      margin: 3rem 0;
-      color: var(--primary);
-    }
-
-    .tiny-dog {
-      position: fixed;
-      bottom: 10px;
-      left: -100px;
-      width: 64px;
-      z-index: 9999;
-      animation: dogWalk 30s linear infinite;
-    }
-    @keyframes dogWalk {
-      0% { left: -100px; }
-      100% { left: 110%; }
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--card);
-      color: var(--text);
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar">
-    <h2>Alizae Brown</h2>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="theme-toggle" onclick="toggleTheme()">☀️/🌙</button>
-  </nav>
-
-  <header>
-    <h1>Keeping the Data</h1>
-    <div class="header-sub">Crafting clarity from curiosity, one project at a time.</div>
-    <div class="marquee"><span>💻 Tableau &nbsp;&nbsp;&bull;&nbsp;&nbsp; SQL &nbsp;&nbsp;&bull;&nbsp;&nbsp; Python (Learning!) &nbsp;&nbsp;&bull;&nbsp;&nbsp; HTML/CSS &nbsp;&nbsp;&bull;&nbsp;&nbsp; Data Cleaning &nbsp;&nbsp;&bull;&nbsp;&nbsp; Visualization &nbsp;&nbsp;&bull;&nbsp;&nbsp; Storytelling 💬</span></div>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm Alizae — an aspiring data analyst transitioning into tech with curiosity and creativity. This is my sandbox for learning, documenting, and growing through real-world projects and storytelling dashboards.</p>
-  </section>
-
-  <div class="quote-block">“Change is messy. But so is growth.” 🌱</div>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-container">
-      <!-- Example Project -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/The_World_Bank_Group_%2853844804648%29.jpg" alt="World Bank" />
-            <h3>World Bank Analysis</h3>
-          </div>
-          <div class="card-back">
-            <p>Used World Bank data to analyze company stock trends with Tableau.</p>
-            <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart3_17322260102710/Dashboard1" target="_blank">View Dashboard</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email me at <a href="mailto:keepingthedata@gmail.com">keepingthedata@gmail.com</a></p>
-  </section>
-
-  <footer>
-    <p>Made with curiosity + caffeine ☕ | © <span id="year"></span> Alizae Brown</p>
-  </footer>
-
-  <!-- Tiny Dog 🐶 -->
-  <img class="tiny-dog" src="https://i.imgur.com/uw7eq8R.gif" alt="Tiny Dog" />
-
-  <script>
-    // Theme toggle
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme");
-      document.documentElement.setAttribute("data-theme", current === "light" ? "dark" : "light");
-    }
-
-    // Auto-update year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      text-align
+::contentReference[oaicite:10]{index=10}
+ 
