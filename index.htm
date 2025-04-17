@@ -1,41 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Keeping the Stoke | Data Portfolio</title>
+  <title>Keeping the Data | Alizae Brown</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f5f5f5;
+      --text: #222;
+      --primary: #0f3057;
+      --accent: #00c2cb;
+      --card: #ffffff;
+    }
+    [data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #f1f1f1;
+      --primary: #142d4c;
+      --accent: #3bc8c8;
+      --card: #2c2c2c;
+    }
+
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      color: #222;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
 
-    /* Navbar styles */
+    /* Navbar */
     .navbar {
       position: sticky;
       top: 0;
       width: 100%;
-      background-color: #0f3057;
+      background-color: var(--primary);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
       z-index: 1000;
     }
-
     .navbar h2 {
       color: white;
       margin: 0;
       font-size: 1.5rem;
     }
-
     .navbar ul {
       list-style: none;
       display: flex;
@@ -43,29 +57,41 @@
       margin: 0;
       padding: 0;
     }
-
     .navbar a {
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+    }
+    .navbar a:hover {
+      color: var(--accent);
     }
 
-    .navbar a:hover {
-      color: #00c2cb;
+    /* Theme toggle */
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     header {
-      background-color: #0f3057;
-      color: white;
-      padding: 4rem 2rem 2rem;
       text-align: center;
+      padding: 4rem 2rem 2rem;
+      background: var(--primary);
+      color: white;
     }
 
     section {
       padding: 2rem;
       max-width: 1200px;
       margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
     }
 
     .card-container {
@@ -100,15 +126,8 @@
       backface-visibility: hidden;
       border-radius: 10px;
       overflow: hidden;
+      background-color: var(--card);
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    .card-front {
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .card-front img {
@@ -120,134 +139,7 @@
     .card-front h3 {
       margin: 0.5rem;
       font-size: 1.1rem;
-      color: #333;
+      color: var(--text);
     }
 
-    .card-back {
-      background: #fefefe;
-      transform: rotateY(180deg);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #333;
-      text-align: center;
-    }
-
-    .card-back a {
-      margin-top: 0.5rem;
-      color: #008891;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .card-back a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #e7e7e7;
-    }
-
-    @media (max-width: 600px) {
-      .card {
-        width: 90%;
-        height: auto;
-      }
-
-      .navbar ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h2>Alizae Brown</h2>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <h1>Keeping the Stoke</h1>
-    <p>Documenting my data learning journey</p>
-  </header>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I'm an aspiring data analyst currently working toward transitioning into a data role. I'm learning by doing — building projects, analyzing messy data, and growing a portfolio I’m proud of.</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-container">
-
-      <!-- Project 1 -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/The_World_Bank_Group_%2853844804648%29.jpg" alt="World Bank Tableau Dashboard">
-            <h3>World Bank Stock Analysis</h3>
-          </div>
-          <div class="card-back">
-            <p>Used available data from the World Bank to analyze and compare stock trends between companies.</p>
-            <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart3_17322260102710/Dashboard1" target="_blank">View Dashboard</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://imageio.forbes.com/specials-images/imageserve/642b0aae0caef48e2bbbf2c5/Manhattan-skyline-on-a-sunny-day-Empire-State-Building-on-the-right--New-York--United/960x0.jpg?format=jpg&width=960" alt="NYC Real Estate Dashboard">
-            <h3>NYC Real Estate Analysis</h3>
-          </div>
-          <div class="card-back">
-            <p>Used Tableau to analyze real estate sales trends in NYC by borough, zip code, and building type.</p>
-            <a href="https://public.tableau.com/app/profile/alizae.brown/viz/Project1BNYCRealEstateData_17291729774170/AveragePricePerSquareFootbyBuildingClass" target="_blank">View Dashboard</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="https://i.imgur.com/9Gi5fnE.jpeg" alt="Railway Commuter Dashboard">
-            <h3>Railway Commuter Analysis</h3>
-          </div>
-          <div class="card-back">
-            <p>Identifies commuter behavior and trends using Tableau and company data for data storytelling practice.</p>
-            <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart2Take2/Conclusion" target="_blank">View Dashboard</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me at: <a href="mailto:keepingthedata@gmail.com">keepingthedata@gmail.com</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>Made with curiosity + caffeine ☕</p>
-  </footer>
-
-</body>
-</html>
+    .card
