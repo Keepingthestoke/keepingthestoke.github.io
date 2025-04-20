@@ -110,22 +110,31 @@
     }
 
     .skills-bar {
-      background-color: var(--highlight);
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 1rem;
-      font-size: 1rem;
-      font-weight: 600;
-      animation: marquee 40s linear infinite;
-    }
-    .skills-bar span {
-      display: inline-block;
-      padding-right: 3rem;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+  background-color: var(--highlight);
+  overflow: hidden;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.skills-bar .marquee {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+
+.skills-bar span {
+  display: inline-block;
+  margin-right: 3rem;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 
     .section {
       padding: 4rem 2rem;
@@ -267,13 +276,29 @@
 
   <section class="hero">
     <h1>Keeping the Data</h1>
-    <p>Hi, I'm Alizae. I turn questions into dashboards and curiosity into insights. Welcome to my playground of pixels and patterns.</p>
-    <div class="highlight">Data + Design + Drive</div>
+    <p>I'm an aspiring data analyst with a passion for uncovering patterns and telling compelling stories through data. My background blends curiosity, communication, and creativity—I enjoy diving into messy datasets, cleaning them up, and delivering insights that drive action. With hands-on experience in Tableau, SQL, Python, and Excel, I’ve built interactive dashboards, automated workflows, and explored global trends across industries. I'm especially drawn to projects that bridge design with data and help people see the bigger picture through simple, clear visualizations.</p>    <div class="highlight">Data + Design + Drive</div>
   </section>
 
-  <div class="skills-bar">
-    <span>💻 Tableau</span><span>📊 SQL</span><span>🐍 Python (learning!)</span><span>🌐 HTML/CSS</span><span>🧹 Data Cleaning</span><span>📈 Visualization</span><span>🗣️ Storytelling</span>
+ <div class="skills-bar">
+  <div class="marquee">
+    <span>💻 Tableau</span>
+    <span>📊 SQL</span>
+    <span>🐍 Python (learning!)</span>
+    <span>🌐 HTML/CSS</span>
+    <span>🧹 Data Cleaning</span>
+    <span>📈 Visualization</span>
+    <span>🗣️ Storytelling</span>
+    <!-- Duplicate content to make scrolling seamless -->
+    <span>💻 Tableau</span>
+    <span>📊 SQL</span>
+    <span>🐍 Python (learning!)</span>
+    <span>🌐 HTML/CSS</span>
+    <span>🧹 Data Cleaning</span>
+    <span>📈 Visualization</span>
+    <span>🗣️ Storytelling</span>
   </div>
+</div>
+
 
   <section class="section" id="about">
     <h2>About Me</h2>
