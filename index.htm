@@ -108,6 +108,7 @@
       margin-top: 1.5rem;
       font-weight: bold;
     }
+
     .skills-bar {
       background-color: var(--highlight);
       overflow: hidden;
@@ -130,6 +131,7 @@
       padding: 4rem 2rem;
       text-align: center;
     }
+
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -281,7 +283,44 @@
   <section class="section" id="projects">
     <h2>Projects</h2>
     <div class="card-container">
-      <!-- All three project cards already added previously -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.imgur.com/0Z8FQfX.png" alt="Project 1 Thumbnail" />
+            <h3>Tableau Dashboard</h3>
+          </div>
+          <div class="card-back">
+            <p>Analyzed rail usage by country to identify expansion opportunities.</p>
+            <a href="https://public.tableau.com/app/profile/alizae.brown/viz/ProjectPart2Take2/Conclusion" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.imgur.com/Z3QjK6k.png" alt="Project 2 Thumbnail" />
+            <h3>Expense Tracker (Python)</h3>
+          </div>
+          <div class="card-back">
+            <p>Terminal app with persistent storage using JSON. Budget tracking made easy!</p>
+            <a href="https://github.com/keepingthestoke/expense-tracker" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.imgur.com/YBdEJMB.png" alt="Project 3 Thumbnail" />
+            <h3>Web Portfolio</h3>
+          </div>
+          <div class="card-back">
+            <p>This very site! Built with HTML, CSS, and JS. Complete with animations and a pixel dog 🐶</p>
+            <a href="https://github.com/keepingthestoke/keepingthestoke.github.io" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -302,6 +341,7 @@
       const current = document.documentElement.getAttribute("data-theme");
       document.documentElement.setAttribute("data-theme", current === "light" ? "dark" : "light");
     }
+
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const observer = new IntersectionObserver(entries => {
